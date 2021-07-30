@@ -1,7 +1,7 @@
 package quorum
 
 import (
-	"github.com/blocktree/quorum-adapter/quorum_addrdec"
+	"github.com/assetsadapterstore/klaytn-adapter/quorum_addrdec"
 )
 
 //AddressDecoder 地址解析器

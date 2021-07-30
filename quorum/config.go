@@ -23,7 +23,7 @@ import (
 )
 
 const (
-	Symbol    = "QUORUM"
+	Symbol    = "KLAY"
 	CurveType = owcrypt.ECC_CURVE_SECP256K1
 )
 

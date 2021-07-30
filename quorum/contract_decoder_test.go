@@ -25,7 +25,7 @@ func TestWalletManager_GetTokenBalanceByAddress(t *testing.T) {
 
 	contract := openwallet.SmartContract{
 		Address:  "0x550cdb1020046b3115a4f8ccebddfb28b66beb27",
-		Symbol:   "QUORUM",
+		Symbol:   "KLAY",
 		Name:     "FQ",
 		Token:    "FQ",
 		Decimals: 2,

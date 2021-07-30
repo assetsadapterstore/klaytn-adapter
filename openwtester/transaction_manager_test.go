@@ -124,7 +124,7 @@ func TestWalletManager_GetAssetsAccountTokenBalance(t *testing.T) {
 
 	contract := openwallet.SmartContract{
 		Address:  "0x627b11ead4eb39ebe61a70ab3d6fe145e5d06ab6",
-		Symbol:   "QUORUM",
+		Symbol:   "KLAY",
 		Name:     "FUQI",
 		Token:    "FUQI",
 		Decimals: 2,
@@ -153,7 +153,7 @@ func TestWalletManager_GetEstimateFeeRate(t *testing.T) {
 
 
 func TestGetAddressVerify(t *testing.T) {
-	symbol := "QUORUM"
+	symbol := "KLAY"
 	assetsMgr, err := openw.GetAssetsAdapter(symbol)
 	if err != nil {
 		log.Error(symbol, "is not support")

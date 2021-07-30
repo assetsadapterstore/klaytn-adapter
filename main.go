@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/blocktree/quorum-adapter/quorum"
+	"github.com/assetsadapterstore/klaytn-adapter/quorum"
 )
 
-func main()  {
+func main() {
 	fmt.Printf("%s build successfully", quorum.Symbol)
 }

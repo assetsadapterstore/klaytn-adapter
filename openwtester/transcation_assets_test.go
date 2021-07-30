@@ -117,7 +117,7 @@ func testSubmitTransactionStep(tm *openw.WalletManager, rawTx *openwallet.RawTra
 	return rawTx, nil
 }
 
-func TestTransfer_QUORUM(t *testing.T) {
+func TestTransfer_KLAY(t *testing.T) {
 
 	addrs := []string{
 		"0x2f0b01cf4f5d2430423d4fba412bfb6347ae8cac",
@@ -181,7 +181,7 @@ func TestTransfer_ERC20(t *testing.T) {
 
 	contract := openwallet.SmartContract{
 		Address:  "0x627b11ead4eb39ebe61a70ab3d6fe145e5d06ab6",
-		Symbol:   "QUORUM",
+		Symbol:   "KLAY",
 		Name:     "FUQI",
 		Token:    "FUQI",
 		Decimals: 2,
@@ -218,7 +218,7 @@ func TestTransfer_ERC20(t *testing.T) {
 
 }
 
-func TestSummary_QUORUM(t *testing.T) {
+func TestSummary_KLAY(t *testing.T) {
 	tm := testInitWalletManager()
 	walletID := "WBGYxZ6yEX582Mx8mGvygXevdLVc7NQnLM"
 	accountID := "EPByoz99UbLvLTdrnckHHDfF5NrRTNtfagBxRdStoKHL"
@@ -274,7 +274,7 @@ func TestSummary_ERC20(t *testing.T) {
 
 	contract := openwallet.SmartContract{
 		Address:  "0x627b11ead4eb39ebe61a70ab3d6fe145e5d06ab6",
-		Symbol:   "QUORUM",
+		Symbol:   "KLAY",
 		Name:     "FUQI",
 		Token:    "FUQI",
 		Decimals: 2,

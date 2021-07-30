@@ -67,7 +67,7 @@ func TestBlockScanner_ExtractTransactionAndReceiptData(t *testing.T) {
 			Exist:     true,
 			TargetInfo: &openwallet.SmartContract{
 				ContractID: "GOOD",
-				Symbol:     "QUORUM",
+				Symbol:     "KLAY",
 				Address:    "0xbff77bb15fec867b7db7b18a34fca6d20712ce2b",
 				Token:      "FUQI",
 				Protocol:   "",

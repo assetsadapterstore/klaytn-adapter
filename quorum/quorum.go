@@ -15,10 +15,10 @@
 package quorum
 
 import (
+	"github.com/assetsadapterstore/klaytn-adapter/quorum_rpc"
 	"github.com/astaxie/beego/config"
 	"github.com/blocktree/openwallet/v2/log"
 	"github.com/blocktree/openwallet/v2/openwallet"
-	"github.com/blocktree/quorum-adapter/quorum_rpc"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"math/big"
 )
