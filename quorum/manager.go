@@ -92,18 +92,18 @@ func (wm *WalletManager) GetTransactionReceipt(transactionId string) (*Transacti
 		transactionId,
 	}
 
-	var ethReceipt types.Receipt
+	var ethReceipt *types.Receipt
 	result, err := wm.WalletClient.Call(strings.ToLower(wm.Config.Symbol)+"_getTransactionReceipt", params)
 	if err != nil {
 		return nil, err
 	}
 
-	err = ethReceipt.UnmarshalJSON([]byte(result.Raw))
+	ethReceipt, err = UnmarshalReceiptJSON([]byte(result.Raw))
 	if err != nil {
 		return nil, err
 	}
 
-	txReceipt := &TransactionReceipt{ETHReceipt: &ethReceipt, Raw: result.Raw}
+	txReceipt := &TransactionReceipt{ETHReceipt: ethReceipt, Raw: result.Raw}
 
 	return txReceipt, nil
 
