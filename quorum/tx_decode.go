@@ -723,7 +723,7 @@ func (decoder *EthTransactionDecoder) CreateErc20TokenSummaryRawTransaction(wrap
 		sumAmount := common.BigIntToDecimals(sumAmount_BI, tokenDecimals)
 		fees := common.BigIntToDecimals(fee.Fee, decoder.wm.Decimal())
 
-		coinBalance, createErr := decoder.wm.GetAddrBalance(addrBalance.Balance.Address, "pending")
+		coinBalance, createErr := decoder.wm.GetAddrBalance(addrBalance.Balance.Address, "latest")
 		if err != nil {
 			continue
 		}
