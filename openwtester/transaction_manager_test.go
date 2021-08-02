@@ -16,10 +16,11 @@
 package openwtester
 
 import (
-	"github.com/astaxie/beego/config"
-	"github.com/blocktree/openwallet/v2/openw"
 	"path/filepath"
 	"testing"
+
+	"github.com/astaxie/beego/config"
+	"github.com/blocktree/openwallet/v2/openw"
 
 	"github.com/blocktree/openwallet/v2/log"
 	"github.com/blocktree/openwallet/v2/openwallet"
@@ -105,8 +106,8 @@ func TestWalletManager_GetTransactionByWxID(t *testing.T) {
 
 func TestWalletManager_GetAssetsAccountBalance(t *testing.T) {
 	tm := testInitWalletManager()
-	walletID := "WDMxQukjqS4SAP73Hx9kkPT4eVgTXDjC3r"
-	accountID := "CBGfADJdeDDPKh7wywxDrmkTJzxGjAQJyT4hVD44bvLE"
+	walletID := "W8tvfXwczfjJmwSoVwQkKqzDnhB72GzP9Y"
+	accountID := "4a8rThPaKF7ZCobSicZQ6abP1c53dgZPiq1f3CeSt4TJ"
 	//accountID := "3xLbreE3asBRVCCk13Y9V4NzjyijXdx8sb6k54TmQkFg"
 	balance, err := tm.GetAssetsAccountBalance(testApp, walletID, accountID)
 	if err != nil {
@@ -118,15 +119,15 @@ func TestWalletManager_GetAssetsAccountBalance(t *testing.T) {
 
 func TestWalletManager_GetAssetsAccountTokenBalance(t *testing.T) {
 	tm := testInitWalletManager()
-	walletID := "WDMxQukjqS4SAP73Hx9kkPT4eVgTXDjC3r"
+	walletID := "W8tvfXwczfjJmwSoVwQkKqzDnhB72GzP9Y"
 	//accountID := "CBGfADJdeDDPKh7wywxDrmkTJzxGjAQJyT4hVD44bvLE"
-	accountID := "EPByoz99UbLvLTdrnckHHDfF5NrRTNtfagBxRdStoKHL"
+	accountID := "4a8rThPaKF7ZCobSicZQ6abP1c53dgZPiq1f3CeSt4TJ"
 
 	contract := openwallet.SmartContract{
-		Address:  "0x627b11ead4eb39ebe61a70ab3d6fe145e5d06ab6",
+		Address:  "0x437514dbb392af27b5daaf98030ab6f028a49513",
 		Symbol:   "KLAY",
-		Name:     "FUQI",
-		Token:    "FUQI",
+		Name:     "KERRI",
+		Token:    "KERRI",
 		Decimals: 2,
 	}
 
@@ -141,7 +142,7 @@ func TestWalletManager_GetAssetsAccountTokenBalance(t *testing.T) {
 func TestWalletManager_GetEstimateFeeRate(t *testing.T) {
 	tm := testInitWalletManager()
 	coin := openwallet.Coin{
-		Symbol: "VSYS",
+		Symbol: "KLAY",
 	}
 	feeRate, unit, err := tm.GetEstimateFeeRate(coin)
 	if err != nil {
@@ -150,7 +151,6 @@ func TestWalletManager_GetEstimateFeeRate(t *testing.T) {
 	}
 	log.Std.Info("feeRate: %s %s/%s", feeRate, coin.Symbol, unit)
 }
-
 
 func TestGetAddressVerify(t *testing.T) {
 	symbol := "KLAY"
@@ -169,13 +169,13 @@ func TestGetAddressVerify(t *testing.T) {
 	assetsMgr.LoadAssetsConfig(c)
 	addrDec := assetsMgr.GetAddressDecoderV2()
 
-	flag := addrDec.AddressVerify("0x4402a2969da0689a0e6f5fbad8be930430b4ad63af25f3c93dbd03bb40908d08")
+	flag := addrDec.AddressVerify("0x8144a6f2d4873d02256640678b402ea233648f1")
 	log.Infof("flag: %v, expect: false", flag)
 
-	flag = addrDec.AddressVerify("6541a59bd17cf20f058e8b5377f034a32843410f")
+	flag = addrDec.AddressVerify("xdfe6070e1e8e53d23147df1e7ed09f49acbbf722")
 	log.Infof("flag: %v, expect: false", flag)
 
-	flag = addrDec.AddressVerify("0x6541a59bd17cf20f058e8b5377f034a32843410f")
+	flag = addrDec.AddressVerify("0x513262dc4559347ace1b211bdc85469bb7454744")
 	log.Infof("flag: %v, expect: true", flag)
 
 }

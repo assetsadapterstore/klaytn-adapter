@@ -16,10 +16,11 @@
 package openwtester
 
 import (
+	"testing"
+
 	"github.com/blocktree/openwallet/v2/log"
 	"github.com/blocktree/openwallet/v2/openw"
 	"github.com/blocktree/openwallet/v2/openwallet"
-	"testing"
 )
 
 func testGetAssetsAccountBalance(tm *openw.WalletManager, walletID, accountID string) {
@@ -120,8 +121,8 @@ func testSubmitTransactionStep(tm *openw.WalletManager, rawTx *openwallet.RawTra
 func TestTransfer_KLAY(t *testing.T) {
 
 	addrs := []string{
-		"0x2f0b01cf4f5d2430423d4fba412bfb6347ae8cac",
-		//"0x3880f535ea2e5ea837d4f72250ede40627ccdca0",
+		// "0x513262dc4559347ace1b211bdc85469bb7454744",
+		"0x8144a6f2d4873d02256640678b402ea233648f15",
 		//"0x48740446f5637995b3b542832ba8a511caeafaa4",
 		//"0x9fad88195e6ee7f8c39e9e4ed4deb70a21836ada",
 		//"0xa02126f69d4e240ef4e373224b11f0dbaf652c76",
@@ -132,13 +133,13 @@ func TestTransfer_KLAY(t *testing.T) {
 	}
 
 	tm := testInitWalletManager()
-	walletID := "WDMxQukjqS4SAP73Hx9kkPT4eVgTXDjC3r"
-	accountID := "CBGfADJdeDDPKh7wywxDrmkTJzxGjAQJyT4hVD44bvLE"
+	walletID := "W8tvfXwczfjJmwSoVwQkKqzDnhB72GzP9Y"
+	accountID := "4a8rThPaKF7ZCobSicZQ6abP1c53dgZPiq1f3CeSt4TJ"
 
 	testGetAssetsAccountBalance(tm, walletID, accountID)
 
 	for _, to := range addrs {
-		rawTx, err := testCreateTransactionStep(tm, walletID, accountID, to, "1", "", nil, nil)
+		rawTx, err := testCreateTransactionStep(tm, walletID, accountID, to, "1.99", "", nil, nil)
 		if err != nil {
 			return
 		}
@@ -166,24 +167,24 @@ func TestTransfer_KLAY(t *testing.T) {
 func TestTransfer_ERC20(t *testing.T) {
 
 	addrs := []string{
-		"0x2f0b01cf4f5d2430423d4fba412bfb6347ae8cac",
-		"0x3880f535ea2e5ea837d4f72250ede40627ccdca0",
-		"0x48740446f5637995b3b542832ba8a511caeafaa4",
-		"0x9fad88195e6ee7f8c39e9e4ed4deb70a21836ada",
-		"0xa02126f69d4e240ef4e373224b11f0dbaf652c76",
-		"0xf1dd51bdb6234b8d9154bb73f55ac9683166a733",
-		"0xf41fbb39d2d57de11b065dffe4d9c5fb535e25ed",
+		"0x8144a6f2d4873d02256640678b402ea233648f15",
+		// "0x3880f535ea2e5ea837d4f72250ede40627ccdca0",
+		// "0x48740446f5637995b3b542832ba8a511caeafaa4",
+		// "0x9fad88195e6ee7f8c39e9e4ed4deb70a21836ada",
+		// "0xa02126f69d4e240ef4e373224b11f0dbaf652c76",
+		// "0xf1dd51bdb6234b8d9154bb73f55ac9683166a733",
+		// "0xf41fbb39d2d57de11b065dffe4d9c5fb535e25ed",
 	}
 
 	tm := testInitWalletManager()
-	walletID := "WDMxQukjqS4SAP73Hx9kkPT4eVgTXDjC3r"
-	accountID := "CBGfADJdeDDPKh7wywxDrmkTJzxGjAQJyT4hVD44bvLE"
+	walletID := "W8tvfXwczfjJmwSoVwQkKqzDnhB72GzP9Y"
+	accountID := "4a8rThPaKF7ZCobSicZQ6abP1c53dgZPiq1f3CeSt4TJ"
 
 	contract := openwallet.SmartContract{
-		Address:  "0x627b11ead4eb39ebe61a70ab3d6fe145e5d06ab6",
+		Address:  "0x437514dbb392af27b5daaf98030ab6f028a49513",
 		Symbol:   "KLAY",
-		Name:     "FUQI",
-		Token:    "FUQI",
+		Name:     "KERRI",
+		Token:    "KERRI",
 		Decimals: 2,
 	}
 
@@ -192,7 +193,7 @@ func TestTransfer_ERC20(t *testing.T) {
 	testGetAssetsAccountTokenBalance(tm, walletID, accountID, contract)
 
 	for _, to := range addrs {
-		rawTx, err := testCreateTransactionStep(tm, walletID, accountID, to, "12.34", "", &contract, nil)
+		rawTx, err := testCreateTransactionStep(tm, walletID, accountID, to, "1.23", "", &contract, nil)
 		if err != nil {
 			return
 		}
@@ -220,9 +221,10 @@ func TestTransfer_ERC20(t *testing.T) {
 
 func TestSummary_KLAY(t *testing.T) {
 	tm := testInitWalletManager()
-	walletID := "WBGYxZ6yEX582Mx8mGvygXevdLVc7NQnLM"
-	accountID := "EPByoz99UbLvLTdrnckHHDfF5NrRTNtfagBxRdStoKHL"
-	summaryAddress := "0x3440f720862aa7dfd4f86ecc78542b3ded900c02"
+
+	walletID := "W8tvfXwczfjJmwSoVwQkKqzDnhB72GzP9Y"
+	accountID := "4a8rThPaKF7ZCobSicZQ6abP1c53dgZPiq1f3CeSt4TJ"
+	summaryAddress := "0xf5f6c07361826def0d7f463816b6c983815063f6"
 
 	testGetAssetsAccountBalance(tm, walletID, accountID)
 
@@ -262,21 +264,21 @@ func TestSummary_KLAY(t *testing.T) {
 
 func TestSummary_ERC20(t *testing.T) {
 	tm := testInitWalletManager()
-	walletID := "WBGYxZ6yEX582Mx8mGvygXevdLVc7NQnLM"
-	accountID := "EPByoz99UbLvLTdrnckHHDfF5NrRTNtfagBxRdStoKHL"
-	summaryAddress := "0x3440f720862aa7dfd4f86ecc78542b3ded900c02"
+	walletID := "W8tvfXwczfjJmwSoVwQkKqzDnhB72GzP9Y"
+	accountID := "4a8rThPaKF7ZCobSicZQ6abP1c53dgZPiq1f3CeSt4TJ"
+	summaryAddress := "0xf5f6c07361826def0d7f463816b6c983815063f6"
 
-	feesSupport := openwallet.FeesSupportAccount{
-		AccountID: "3xLbreE3asBRVCCk13Y9V4NzjyijXdx8sb6k54TmQkFg",
-		//FixSupportAmount: "0.01",
-		FeesSupportScale: "1.3",
-	}
+	// feesSupport := openwallet.FeesSupportAccount{
+	// 	AccountID: "4a8rThPaKF7ZCobSicZQ6abP1c53dgZPiq1f3CeSt4TJ",
+	// 	//FixSupportAmount: "0.01",
+	// 	FeesSupportScale: "1.3",
+	// }
 
 	contract := openwallet.SmartContract{
-		Address:  "0x627b11ead4eb39ebe61a70ab3d6fe145e5d06ab6",
+		Address:  "0x437514dbb392af27b5daaf98030ab6f028a49513",
 		Symbol:   "KLAY",
-		Name:     "FUQI",
-		Token:    "FUQI",
+		Name:     "KERRI",
+		Token:    "KERRI",
 		Decimals: 2,
 	}
 
@@ -286,7 +288,7 @@ func TestSummary_ERC20(t *testing.T) {
 
 	rawTxArray, err := testCreateSummaryTransactionStep(tm, walletID, accountID,
 		summaryAddress, "", "", "",
-		0, 100, &contract, &feesSupport)
+		0, 100, &contract, nil)
 	if err != nil {
 		log.Errorf("CreateSummaryTransaction failed, unexpected error: %v", err)
 		return

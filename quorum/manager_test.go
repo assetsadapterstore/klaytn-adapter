@@ -18,16 +18,17 @@ package quorum
 import (
 	"encoding/hex"
 	"fmt"
+	"math/big"
+	"path/filepath"
+	"strings"
+	"testing"
+
 	"github.com/astaxie/beego/config"
 	"github.com/blocktree/openwallet/v2/common"
 	"github.com/blocktree/openwallet/v2/log"
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	ethcom "github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	"math/big"
-	"path/filepath"
-	"strings"
-	"testing"
 )
 
 var (
@@ -63,7 +64,7 @@ func TestFixGasLimit(t *testing.T) {
 
 func TestWalletManager_GetAddrBalance(t *testing.T) {
 	wm := testNewWalletManager()
-	balance, err := wm.GetAddrBalance("0x3440f720862aa7dfd4f86ecc78542b3ded900c02", "pending")
+	balance, err := wm.GetAddrBalance("0x3440f720862aa7dfd4f86ecc78542b3ded900c02", "latest")
 	if err != nil {
 		t.Errorf("GetAddrBalance2 error: %v", err)
 		return
