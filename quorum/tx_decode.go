@@ -18,13 +18,14 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
-	"github.com/blocktree/openwallet/v2/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/shopspring/decimal"
 	"math/big"
 	"sort"
 	"strconv"
 	"time"
+
+	"github.com/blocktree/openwallet/v2/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/shopspring/decimal"
 
 	"github.com/blocktree/go-owcrypt"
 	"github.com/blocktree/openwallet/v2/openwallet"
@@ -242,7 +243,7 @@ func (decoder *EthTransactionDecoder) CreateErc20TokenRawTransaction(wrapper ope
 			fee.CalcFee()
 		}
 
-		coinBalance, err := decoder.wm.GetAddrBalance(addrBalance.Balance.Address, "pending")
+		coinBalance, err := decoder.wm.GetAddrBalance(addrBalance.Balance.Address, "latest")
 		if err != nil {
 			continue
 		}
